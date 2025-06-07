@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="tool_equipment_view_form" model="ir.ui.view">
+        <field name="name">tool.equipment</field>
+        <field name="model">tool.equipment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="available,asignado,maintenance,lost,damaged"/>
+                    <button name="available_button" string="Disponible" class="btn-primary" type="object"/>
+                    <button name="asignado_button" string="Asignado" class="btn-primary" type="object"/>
+                    <button name="maintenance_button" string="En mantenimiento" class="btn-primary" type="object"/>
+                    <button name="lost_button" string="Perdido" class="btn-primary" type="object"/>
+                    <button name="damaged_button" string="Dañado" class="btn-primary" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="current_employee_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Historial de Mantenimiento">
+                            <field name="maintenance_ids">
+                                <list string="Historial de mantenimento">
+                                    <control>
+                                        <create name="Agregar historial" string="Agregar registro de mantenimiento"/>
+                                    </control>
+                                    <field name="tool_id"/>
+                                    <field name="date"/>
+                                    <field name="description"/>
+                                    <field name="cost"/>
+                                    <field name="performed_by"/>
+                                </list>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="tool_id"/>
+                                            <field name="date"/>
+                                            <field name="description"/>
+                                        </group>
+                                        <group>
+                                            <field name="cost"/>
+                                            <field name="performed_by"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Historial de Asignaciones">
+                            <field name="assignment_ids">
+                                <list string="Historial de Asignaciones">
+                                    <control>
+                                        <create name="Asignaciones" string="Agregar registro de asignaciones"/>
+                                    </control>
+                                    <field name="tool_id"/>
+                                    <field name="employee_id"/>
+                                    <field name="date_assigned"/>
+                                    <field name="date_returned"/>
+                                </list>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="tool_id"/>
+                                            <field name="employee_id"/>
+                                        </group>
+                                        <group>
+                                            <field name="date_assigned"/>
+                                            <field name="date_returned"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tool_equipment_tree_view" model="ir.ui.view">
+        <field name="name">tool.equipment</field>
+        <field name="model">tool.equipment</field>
+        <field name="arch" type="xml">
+            <!-- Primer cambio en odoo 18, ya no se pone tree, sino list -->
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="description"/>
+                <field name="date"/>
+                <field name="current_employee_id"/>
+            </list>
+        </field>
+
+    </record>
+</odoo>

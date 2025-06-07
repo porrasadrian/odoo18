@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tool_equipment,Acceso al modelo de herramientas,model_tool_equipment,tool_maintenance.tool_maintenance_group,1,1,1,1
+access_tool_maintenance,Acceso al modelo de mantenimiento,model_tool_maintenance,tool_maintenance.tool_maintenance_group,1,1,1,1
+access_tool_assignment, Acceso al modelo de asignaciones,model_tool_assignment,tool_maintenance.tool_maintenance_group,1,1,1,1

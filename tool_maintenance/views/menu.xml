@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tool_maintenance_action" model="ir.actions.act_window">
+        <field name="name">Herramientas</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tool.equipment</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                No hay ningun registro hasta el momento, por favor, crea un registro.
+            </p>
+        </field>
+    </record>
+
+    <menuitem name="Gestion de herramientas" id="tool_management" parent="stock.menu_stock_root" sequence="3"/>
+    <menuitem name="Herramientas" id="tools" parent="tool_management" action="tool_maintenance_action" />
+</odoo>

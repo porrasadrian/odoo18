@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.module.category" id="tool_maintenance_category">
+            <field name="name">Gestion de herramientas</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="tool_maintenance_group" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="tool_maintenance.tool_maintenance_category"/>
+        </record>
+
+
+
+
+    </data>
+</odoo>
